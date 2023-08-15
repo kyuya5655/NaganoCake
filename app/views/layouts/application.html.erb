@@ -8,9 +8,15 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
   </head>
 
   <body>
+    <header>
+      <% admin_signed_in? %>
+
+      <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+    </header>
     <%= yield %>
   </body>
 </html>
