@@ -16,15 +16,18 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    get '' => 'homes#top'
+    root :to => 'homes#top'
+    resources :items
   end
 
   scope module: :public do
-    get '/' => 'homes#top'
+    root :to => 'homes#top'
     get '/about' => 'homes#about'
     get '/information/edit' => 'customers#edit'
     get '/quit_check' => 'customers#quit_check'
     patch '/withdraw' => 'customers#withdraw'
   end
+
+
 
 end
