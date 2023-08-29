@@ -13,11 +13,14 @@ class Admin::ItemsController < ApplicationController
   def index
     @items = Item.all
     @item = Item.new
-    @item_image = @item.image
   end
 
   def show
+    @item = Item.find(params[:id])
+  end
 
+  def edit
+    @item = Item.find(params[:id])
   end
 
   private
