@@ -14,7 +14,7 @@
     <td><%= @item.introduction %></td>
   </tr>
   <tr>
-    <td>税込価格</td>
+    <td>税込価格(税抜価格)</td>
     <td><%= @item.add_tax_price.to_s(:dalimited) %>(<%= @item.price %>)</td>
   </tr>
 </table>

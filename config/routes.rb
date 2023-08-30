@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     get '/information/edit' => 'customers#edit'
     get '/quit_check' => 'customers#quit_check'
     patch '/withdraw' => 'customers#withdraw'
+    resources :items, only: [:index, :show]
   end
 
 

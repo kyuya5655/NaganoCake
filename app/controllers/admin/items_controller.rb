@@ -10,8 +10,14 @@ class Admin::ItemsController < ApplicationController
     render :show
   end
 
+  def update
+    @item = Item.find(params[:id])
+    @item.update(items_params)
+    redirect_to admin_item_path(@item.id)
+  end
+
   def index
-    @items = Item.all
+    @items = Item.page(params[:page])
     @item = Item.new
   end
 
