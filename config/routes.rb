@@ -18,12 +18,15 @@ Rails.application.routes.draw do
   namespace :admin do
     root :to => 'homes#top'
     resources :items
+    resources :customers, only: [:index, :show, :edit, :update]
   end
 
   scope module: :public do
     root :to => 'homes#top'
     get '/about' => 'homes#about'
+    get '/customers' => 'customer#show'
     get '/information/edit' => 'customers#edit'
+    patch '/customers' => 'customers#update'
     get '/quit_check' => 'customers#quit_check'
     patch '/withdraw' => 'customers#withdraw'
     resources :items, only: [:index, :show]
