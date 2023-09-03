@@ -30,6 +30,12 @@ Rails.application.routes.draw do
     get '/quit_check' => 'customers#quit_check'
     patch '/withdraw' => 'customers#withdraw'
     resources :items, only: [:index, :show]
+    resources :cart_items, only: [:index, :update, :create]
+    delete '/destroy' => 'cart_items#destroy'
+    delete '/destroy_all' => 'cart_items#destroy_all'
+    resources :orders, only: [:new, :index, :show, :create]
+    post '/check' => 'orders#check'
+    get '/conpletion' => 'oeders#completion'
   end
 
 
