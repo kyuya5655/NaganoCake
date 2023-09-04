@@ -38,17 +38,16 @@
   </div>
 
 
-  <!--<div class="is_deleted">-->
-  <!--  <= form.label is_deleted %>-->
-  <!--  <div>-->
-  <!--    %= form.radio_button :is_deleted, true %>-->
-  <!--    %= form.label :is_deleted, '退会', value: true %>-->
-  <!--  </div>-->
-  <!--  <div>-->
-  <!--    %= form.radio_button :is_deleted, false %>-->
-  <!--    %= form.label :is_deleted, '有効', value: false %>-->
-  <!--  </div>-->
-  <!--</div>-->
+  <div class="is_deleted">
+    <div>
+      <%= f.radio_button :is_deleted, true %>
+      <%= f.label :is_deleted, '退会', value: true %>
+    </div>
+    <div>
+      <%= f.radio_button :is_deleted, false %>
+      <%= f.label :is_deleted, '有効', value: false %>
+    </div>
+  </div>
 
 
     <div class="form_group">
