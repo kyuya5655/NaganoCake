@@ -7,10 +7,21 @@ class Public::CartItemsController < ApplicationController
     @cart_item.save
     redirect_to cart_items_path
   end
+  
+  def create
+    CartItem.find_by(name params[])
+  end
 
   def index
     @cart_items = CartItem.all
     @sum = 0
+  end
+
+
+  def update
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(cart_item_params)
+    redirect_to cart_items_path
   end
 
   def destroy
