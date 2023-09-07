@@ -1,25 +1,19 @@
-class Public::CartItemsController < ApplicationController
-
-  # def create
-  #   # @item = Item.find(cart_item_params[:item_id])
-  #   @cart_item = CartItem.new(cart_item_params)
-  #   @cart_item.customer_id = current_customer.id
-  #   @cart_item.save
-  #   redirect_to cart_items_path
-  # end
+class Public::CartItemsController < ApplicationControllers
 
   def create
-    @cart_item = CartItem.find_by(cart_item_params)
-    @cart_item.customer_id = current_customer.id
-    @cart_items = CartItem.all
-      @cart_items.each do |cart_item|
-        if cart_item.item_id == @cart_item.item_id
-          new_amount = cart_item.amount += @cart_item.amount.to_i
-          cart_item.update(:cart_item)
-        # else
-        #   @cart_item.save
-
-        end
+    @cart_item_new = CartItem.new(cart_item_params)
+    @cart_item_new.customer_id = current_customer.id
+    @cart_item = CartItem.find_by(item_id: params[:cart_item][:item_id], customer_id: current_customer.id)
+      if @cart_item
+        @cart_total_amount = @cart_item.amount += @cart_item_new.amount.to_i
+        @cart_item.update(amount: @cart_total_amount)
+        redirect_to cart_items_path
+      else
+        @item = Item.find(cart_item_params[:item_id])
+        @cart_item = CartItem.new(cart_item_params)
+        @cart_item.customer_id = current_customer.id
+        @cart_item.save
+        redirect_to cart_items_path
       end
   end
 
