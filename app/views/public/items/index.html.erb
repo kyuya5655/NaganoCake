@@ -9,7 +9,7 @@
     <% end %>
   </div>
   <div class="item_name">
-    <%= link_to item.name, admin_item_path(item.id) %>
+    <%= link_to item.name, item_path(item.id) %>
   </div>
   <div class="item_price">
     ¥<%= item.add_tax_price.to_s(:dalimited) %>
