@@ -1,12 +1,7 @@
 class Admin::HomesController < ApplicationController
 
   def top
-    @order = current_customer.order
-
+    @orders = Order.page(params[:page])
   end
-
-  private
-
-
 
 end

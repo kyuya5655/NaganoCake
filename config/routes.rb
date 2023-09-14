@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     root :to => 'homes#top'
     resources :items
     resources :customers, only: [:index, :show, :edit, :update]
+    get '/orders/:id' => 'orders#show'
   end
 
   scope module: :public do
