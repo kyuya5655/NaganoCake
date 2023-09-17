@@ -1,4 +1,4 @@
-<h2>注文情報確認</h2>
+<h3>注文情報確認</h3>
 
 <%= form_with model: @order do |f| %>
   <table border="1" cellspacing="0" cellpadding="0">
@@ -15,7 +15,7 @@
     <tbody>
       <tr>
         <td><%= cart_item.item.name %></td>
-        <td><%= cart_item.item.price %></td>
+        <td><%= cart_item.item.with_tax_price %></td>
         <td><%= cart_item.amount %></td>
         <td><%= cart_item.subtotal %></td>
         <% @order.total_payment += cart_item.subtotal %>

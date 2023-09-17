@@ -3,11 +3,11 @@
 <table>
   <tr>
     <td>購入者</td>
-    <td><%= @order.name %></td>
+    <td><%= @order.customer.last_name %><%= @order.customer.first_name %></td>
   </tr>
   <tr>
     <td>注文日</td>
-    <td><%= @order.created_at %></td>
+    <td><%= l @order.created_at %></td>
   </tr>
   <tr>
     <td>配送先</td>
@@ -18,4 +18,48 @@
     <td><%= @order.payment_method_i18n %></td>
   </tr>
 
+</table>
+
+<table border="1" cellspacing="0" cellpadding="0">
+
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価（税込）</th>
+      <th>数量</th>
+      <th>小計</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @order_details.each do |order_detail| %>
+      <td class="order_item_name">
+        <%= order_detail.item.name %>
+      </td>
+      <td class="order_item_price">
+        <%= order_detail.item.price %>
+      </td>
+      <td class="order_item_amount">
+        <%= order_detail.amount %>
+      </td>
+      <td class="order_subtotal">
+        <%= order_detail.subtotal %>
+      </td>
+    <% end %>
+  </tbody>
+</table>
+
+<table>
+  <tr>
+    <td>商品合計</td>
+    <td><%= @order.total_payment %></td>
+  </tr>
+  <tr>
+    <td>送料</td>
+    <td><%= @order.postage %></td>
+  </tr>
+  <tr>
+    <td>請求金額合計</td>
+    <td><%= @order.total_payment + @order.postage %></td>
+  </tr>
 </table>

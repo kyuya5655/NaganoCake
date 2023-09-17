@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
-  has_many :items
+  has_many :cart_items
+  has_many :order_details
   has_one_attached :item_image
 
   def get_item_image(width, height)
@@ -22,6 +23,6 @@ class Item < ApplicationRecord
     (price * 1.1).floor
   end
 
- 
+
 
 end
