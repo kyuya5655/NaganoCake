@@ -7,7 +7,7 @@ class Admin::ItemsController < ApplicationController
   def create
     @item = Item.new(items_params)
     @item.save
-    render :show
+    redirect_to admin_item_path(@item.id)
   end
 
   def update

@@ -31,22 +31,23 @@
     </tr>
   </thead>
 
+
+<% @order_details.each do |order_detail| %>
   <tbody>
-    <% @order_details.each do |order_detail| %>
       <td class="order_item_name">
-        <%= order_detail.item.name %>
+        <%= order_detail.item.name %></br>
       </td>
       <td class="order_item_price">
-        <%= order_detail.item.price %>
+        <%= order_detail.item.price %></br>
       </td>
       <td class="order_item_amount">
-        <%= order_detail.amount %>
+        <%= order_detail.amount %></br>
       </td>
       <td class="order_subtotal">
-        <%= order_detail.subtotal %>
+        <%= order_detail.subtotal %></br>
       </td>
-    <% end %>
   </tbody>
+<% end %>
 </table>
 
 <table>

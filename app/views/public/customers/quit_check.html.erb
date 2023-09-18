@@ -8,8 +8,4 @@
 
 <%= link_to "退会しない", customers_path %>
 
-<!--%= form_with model: current_customer, url: customers_path do |f| %>-->
-<!--%= f.submit "退会する" %>-->
-<!--% end %>-->
-
-<%= link_to "退会する", withdraw_path, method: :patch %>
+<%= link_to "退会する", withdraw_path, method: :patch, "data-confirm" => "退会しますか？",class:"btn btn-sm btn-danger destroy_book_94226"  %>
